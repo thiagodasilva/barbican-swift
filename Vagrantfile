@@ -6,11 +6,10 @@ Vagrant.configure("2") do |config|
   config.vm.boot_timeout = 600
   VMS = 1
   (0..VMS-1).each do |vm|
-    config.vm.define "barbicanswiftqueens" do |barbicanswift|
-      barbicanswift.vm.hostname = "barbicanswiftqueens"
+    config.vm.define "barbicanswift#{vm}" do |barbicanswift|
+      barbicanswift.vm.hostname = "barbicanswift#{vm}"
       barbicanswift.vm.provider "virtualbox" do | v |
         v.memory = 8192
-        v.name = "barbicanswiftqueens"
         v.cpus = 4
         unless File.exist?(STORE)
           v.customize ['createhd', '--filename', STORE, '--size', 2 * 1024]
