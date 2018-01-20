@@ -263,6 +263,8 @@ cache = swift.cache
 include_service_catalog = False
 delay_auth_decision = True
 auth_version = v3.0
+user_domain_id = default
+project_domain_id = default
 
 [filter:keystoneauth]
 use = egg:swift#keystoneauth
